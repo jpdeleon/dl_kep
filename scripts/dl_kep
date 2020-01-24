@@ -12,12 +12,14 @@ def corrector_func(lc):
 if __name__ == "__main__":
     ap = ArgumentParser()
     ap.add_argument('kicid', help='KIC ID')
-    ap.add_argument("-o", "--outdir", help="output directory", default='.')
-    ap.add_argument("-v", "--verbose", action="store_true", default=True)
-    ap.add_argument("-c", "--clobber", action="store_true", default=True)
+    ap.add_argument("-o", "--outdir", help="output directory", default='./data')
+    ap.add_argument("-v", "--verbose", action="store_true", default=False)
+    ap.add_argument("-c", "--clobber", action="store_true", default=False)
     args = ap.parse_args()
 
     kicid = args.kicid
+    if args.verbose:
+        print(f'Downloading KIC {kicid}...')
     lcfs = lk.search_lightcurvefile(f'KIC {kicid}', mission='Kepler').download_all()
     if lcfs is not None:
         stitched_lc = lcfs.PDCSAP_FLUX.stitch(corrector_func=corrector_func)
@@ -29,7 +31,7 @@ if __name__ == "__main__":
         outpath = os.path.join(args.outdir, filename)
 
         if not os.path.exists(outpath) or args.clobber:
-            stitched_lc.to_csv(index=False)
+            stitched_lc.to_csv(outpath, index=False)
             if args.verbose:
                 print(f'Saved: {outpath}')
         else:
