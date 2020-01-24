@@ -23,9 +23,9 @@ if __name__ == "__main__":
         kicid = line[2].split('/')[0][5:14]
         commands.append(f'./dl_kep {kicid} -o={args.outdir} -v')
 
-    if not os.path.exits(args.outdir):
+    if not os.path.exists(args.outdir):
         os.makedirs(args.outdir)
-        
+
     filename = 'dl_kep.batch'
     batch_file_path = os.path.join(args.outdir, filename)
     if not os.path.exists(batch_file_path) or args.clobber:

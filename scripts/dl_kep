@@ -31,7 +31,7 @@ if __name__ == "__main__":
         outpath = os.path.join(args.outdir, filename)
 
         if not os.path.exists(outpath) or args.clobber:
-            stitched_lc.to_csv(outpath, index=False)
+            stitched_lc.to_csv(outpath, columns=['time', 'flux', 'flux_err'], index=False)
             if args.verbose:
                 print(f'Saved: {outpath}')
         else:
