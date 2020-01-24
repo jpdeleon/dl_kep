@@ -1,0 +1,10 @@
+wget -O 'kplr010000009-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/141/23/kplr010000009-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000757-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000757-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000758-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000758-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000759-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000759-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000760-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000760-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000761-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000761-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000762-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000762-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000763-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000763-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000764-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000764-2009131105131_llc.fits' -a search_101910808.log
+wget -O 'kplr100000765-2009131105131_llc.fits' 'http://exoplanetarchive.ipac.caltech.edu:80/data/ETSS//Kepler/005/142/55/kplr100000765-2009131105131_llc.fits' -a search_101910808.log

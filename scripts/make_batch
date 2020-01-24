@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+import os
+import numpy as np
+from argparse import ArgumentParser
+
+if __name__ == "__main__":
+    ap = ArgumentParser()
+    ap.add_argument('-w', '--wget_file', help='wget filename', default=f'../data/wget_list.txt')
+    ap.add_argument("-o", "--outdir", help="output directory", default='.')
+    ap.add_argument("-v", "--verbose", action="store_true", default=True)
+    ap.add_argument("-c", "--clobber", action="store_true", default=True)
+    args = ap.parse_args()
+
+    commands = []
+
+    try:
+        wget_list = np.loadtxt(args.wget_file, dtype=str)
+    except:
+        print(f"Error: {args.wget_file} not found!")
+
+    for line in wget_list:
+        kicid = line[2].split('/')[0][5:14]
+        commands.append(f'./dl_kep {kicid} -o={args.outdir}')
+
+    filename = 'dl_kep.batch'
+    batch_file_path = os.path.join(args.outdir, filename)
+    if not os.path.exists(batch_file_path) or args.clobber:
+        np.savetxt(batch_file_path, commands, fmt='%s')
+
+        if args.verbose:
+            print(f'Saved: {batch_file_path}')
+    else:
+        print(f'File exists: {batch_file_path}. Use --clobber to overwrite.')
