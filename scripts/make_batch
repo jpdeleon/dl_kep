@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 if __name__ == "__main__":
     ap = ArgumentParser()
     ap.add_argument('-w', '--wget_file', help='wget filename', default=f'../data/wget_list.txt')
-    ap.add_argument("-o", "--outdir", help="output directory", default='.')
+    ap.add_argument("-o", "--outdir", help="output directory", default='./output')
     ap.add_argument("-v", "--verbose", action="store_true", default=False)
     ap.add_argument("-c", "--clobber", action="store_true", default=False)
     args = ap.parse_args()
@@ -27,11 +27,10 @@ if __name__ == "__main__":
         os.makedirs(args.outdir)
 
     filename = 'dl_kep.batch'
-    batch_file_path = os.path.join(args.outdir, filename)
-    if not os.path.exists(batch_file_path) or args.clobber:
-        np.savetxt(batch_file_path, commands, fmt='%s')
-
-        if args.verbose:
-            print(f'Saved: {batch_file_path}')
+    if not os.path.exists(filename) or args.clobber:
+        np.savetxt(filename, commands, fmt='%s')
+        # if args.verbose:
+        print(f'Saved: {filename}\n')
+        print(f'To run the batch file in parallel,\n$ cat {filename} | parallel\n')
     else:
-        print(f'File exists: {batch_file_path}. Use --clobber to overwrite.')
+        print(f'File exists: {filename}. Use --clobber to overwrite.')
